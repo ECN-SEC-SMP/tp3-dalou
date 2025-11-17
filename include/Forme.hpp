@@ -6,13 +6,13 @@ template <typename T_point, typename T_compute = T_point>
 class Forme;
 
 template <typename T_point, typename T_compute = T_point>
-std::ostream &operator<<(std::ostream &cout, Forme<T_point, T_compute> const& point);
+std::ostream &operator<<(std::ostream &cout, Forme<T_point, T_compute> const& forme);
 
-template <typename T_point, typename T_compute = T_point>
+template <typename T_point, typename T_compute>
 class Forme
 {
-private:
-    Point<T> center;
+protected:
+    Point<T_point> center;
 
 public:
     Forme(Point<T_point> center);
@@ -40,7 +40,7 @@ Point<T_point> Forme<T_point,T_compute>::getPoint() const
 }
 
 template <typename T_point, typename T_compute>
-std::ostream &operator<< <T_point, T_compute>(std::ostream &cout, const Forme<T_point,T_compute> &forme)
+std::ostream &operator<<(std::ostream &cout, const Forme<T_point,T_compute> &forme)
 {
     cout << "Forme(center: " << forme.center << ")";
     return cout;
