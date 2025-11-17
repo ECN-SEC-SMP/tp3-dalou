@@ -9,7 +9,7 @@ template <typename T, typename T_point = T, typename T_compute = T_point>
 std::ostream &operator<<(std::ostream &cout, Rectangle<T, T_point, T_compute> const& rectangle);
 
 template <typename T, typename T_point, typename T_compute>
-class Rectangle : Forme<T_point, T_compute>
+class Rectangle : public Forme<T_point, T_compute>
 {
 private:
     T width, height;
@@ -18,17 +18,20 @@ public:
     ~Rectangle();
 
     T getWidth() const;
-    T getHeigth() const;
+    T getHeight() const;
 
     virtual T_compute perimeter();
     virtual T_compute surface();
 
-    friend std::ostream &operator<< <T_point, T_compute>(std::ostream &cout, const Rectangle &rectangle);
+    friend std::ostream &operator<< <T, T_point, T_compute>(std::ostream &cout, const Rectangle &rectangle);
 };
 
 template <typename T, typename T_point, typename T_compute>
 Rectangle<T, T_point, T_compute>::Rectangle(T width, T height, T_point x, T_point y)
-: width(width), height(height), Point<T_point>(x, y) {}
+: Forme<T_point, T_compute>(Point<T_point>(x, y)), width(width), height(height) {}
+
+template <typename T, typename T_point, typename T_compute>
+Rectangle<T, T_point, T_compute>::~Rectangle() {}
 
 template <typename T, typename T_point, typename T_compute>
 T Rectangle<T, T_point, T_compute>::getWidth() const
@@ -37,7 +40,7 @@ T Rectangle<T, T_point, T_compute>::getWidth() const
 }
 
 template <typename T, typename T_point, typename T_compute>
-T Rectangle<T, T_point, T_compute>::getHeigth() const
+T Rectangle<T, T_point, T_compute>::getHeight() const
 {
     return this->height;
 }
