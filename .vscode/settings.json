@@ -1,6 +1,0 @@
-{
-    "files.associations": {
-        "iostream": "cpp"
-    },
-    "cmake.configureSettings": { "gtest_build_samples": "ON" }
-}
