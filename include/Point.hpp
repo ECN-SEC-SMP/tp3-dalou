@@ -57,6 +57,6 @@ void Point<T>::translate(T dx, T dy)
 template <typename T>
 std::ostream &operator<<(std::ostream &cout, Point<T> const& point)
 {
-    cout << "Point(x: " << point.getX() << ", y: " << point.getY() << ")";
+    cout << "Point(x: " << point.x << ", y: " << point.y << ")";
     return cout;
 }
