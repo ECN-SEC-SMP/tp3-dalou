@@ -49,10 +49,17 @@ int main(int argc, char const *argv[])
     Rectangle<int, int, int> piti_rectangle_le_deuxieme(piti_rectangle);
     std::cout << piti_rectangle_le_deuxieme << std::endl;
 
+    std::cout << "Perimeter du piti rectangle: " << piti_rectangle.perimeter() << std::endl;
+    std::cout << "Surface du piti rectangle le deuxieme: " << piti_rectangle_le_deuxieme.surface() << std::endl;
+
     return 0;
 }
 ```
 
 > Outputs:
 ```
+Rectangle(width: 15, height: 20, center: Point(x: 0, y: 0))
+Rectangle(width: 15, height: 20, center: Point(x: 0, y: 0))
+Perimeter du piti rectangle: 70
+Surface du piti rectangle le deuxieme: 300
 ```
