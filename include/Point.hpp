@@ -3,6 +3,12 @@
 #include <iostream>
 
 template <typename T>
+class Point;
+
+template <typename T>
+std::ostream &operator<<(std::ostream &cout, Point<T> const& point);
+
+template <typename T>
 class Point
 {
 private:
@@ -17,7 +23,7 @@ public:
     T getY() const;
     void translate(T dx, T dy);
 
-    friend std::ostream operator<<  <T>(std::ostream cout, const Point &point);
+    friend std::ostream &operator<< <T>(std::ostream &cout, const Point &point);
 };
 
 template <typename T>
@@ -48,9 +54,9 @@ void Point<T>::translate(T dx, T dy)
     this->y += dy;
 }
 
-
 template <typename T>
-std::ostream operator<<(std::ostream cout, const Point<T> &point)
+std::ostream &operator<<(std::ostream &cout, Point<T> const& point)
 {
-    cout << "Point(x: " << point.x << ", y: " << point.y << ")" << std::endl;
+    cout << "Point(x: " << point.getX() << ", y: " << point.getY() << ")";
+    return cout;
 }
