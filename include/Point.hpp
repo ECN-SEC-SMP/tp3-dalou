@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <string>
 
 template <typename T>
 class Point;
@@ -52,6 +53,12 @@ void Point<T>::translate(T dx, T dy)
 {
     this->x += dx;
     this->y += dy;
+}
+
+void Point<std::string>::translate(std::string dx, std::string dy)
+{
+    this->x = dx;
+    this->y = dy;
 }
 
 template <typename T>
