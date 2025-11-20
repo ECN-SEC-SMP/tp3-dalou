@@ -51,14 +51,16 @@ T Point<T>::getY() const
 template <typename T>
 void Point<T>::translate(T dx, T dy)
 {
-    this->x += dx;
-    this->y += dy;
-}
-
-void Point<std::string>::translate(std::string dx, std::string dy)
-{
-    this->x = dx;
-    this->y = dy;
+    if (typeid(T) == typeid(std::string))
+    {
+        this->x = dx;
+        this->y = dy;
+    }
+    else
+    {
+        this->x += dx;
+        this->y += dy;
+    }
 }
 
 template <typename T>

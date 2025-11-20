@@ -17,10 +17,10 @@ int main(int argc, char const *argv[])
 
 
     /* class Rectangle */
-    Rectangle<int, int, int> piti_rectangle(15, 20, 0, 0);
+    Rectangle<int, int> piti_rectangle(15, 20, 0, 0);
     std::cout << piti_rectangle << std::endl;
 
-    Rectangle<int, int, int> piti_rectangle_le_deuxieme(piti_rectangle);
+    Rectangle<int, int> piti_rectangle_le_deuxieme(piti_rectangle);
     std::cout << piti_rectangle_le_deuxieme << std::endl;
 
     std::cout << "Perimeter du piti rectangle: " << piti_rectangle.perimeter() << std::endl;
